@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DoulGet — Acheter une licence</title>
+<meta name="description" content="Achetez votre licence DoulGet par mobile money (Orange, MTN, Moov, Wave). Activation instantanée.">
+<link rel="icon" href="icon.png">
+<style>
+  :root { --bg:#070d1a; --card:#0d1628; --card2:#111d33; --line:#1d2f52; --blue:#3b82f6; --blue2:#2563eb; --txt:#e8eefc; --mut:#8ea3c8; --ok:#34d399; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--txt); font-family:'Segoe UI',system-ui,sans-serif; min-height:100vh; }
+  .wrap { max-width:520px; margin:0 auto; padding:24px 16px 48px; }
+  header { text-align:center; padding:18px 0 26px; }
+  header img { width:76px; height:76px; border-radius:20px; }
+  header h1 { font-size:26px; margin-top:10px; letter-spacing:.5px; }
+  header h1 span { color:var(--blue); }
+  header p { color:var(--mut); font-size:14px; margin-top:6px; }
+  .plans { display:flex; flex-direction:column; gap:12px; margin-bottom:22px; }
+  .plan { position:relative; background:var(--card); border:2px solid var(--line); border-radius:14px; padding:16px 18px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; transition:.15s; }
+  .plan:hover { border-color:#2c4a86; }
+  .plan.sel { border-color:var(--blue); background:var(--card2); box-shadow:0 0 0 3px rgba(59,130,246,.15); }
+  .plan .l b { font-size:17px; display:block; }
+  .plan .l small { color:var(--mut); font-size:12px; }
+  .plan .p { text-align:right; }
+  .plan .p b { font-size:19px; color:var(--blue); white-space:nowrap; }
+  .plan .p small { display:block; color:var(--mut); font-size:11px; }
+  .badge { position:absolute; top:-10px; right:14px; background:var(--blue); color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:99px; }
+  .field { margin-bottom:12px; }
+  .field label { display:block; font-size:12px; color:var(--mut); margin-bottom:5px; text-transform:uppercase; letter-spacing:.5px; }
+  .field input { width:100%; background:var(--card); border:2px solid var(--line); border-radius:10px; color:var(--txt); font-size:15px; padding:12px 14px; outline:none; }
+  .field input:focus { border-color:var(--blue); }
+  #payBtn { width:100%; margin-top:8px; background:var(--blue2); color:#fff; border:0; border-radius:12px; font-size:16px; font-weight:700; padding:15px; cursor:pointer; transition:.15s; }
+  #payBtn:hover { background:var(--blue); }
+  #payBtn:disabled { opacity:.55; cursor:wait; }
+  .midnote { display:none; background:rgba(52,211,153,.08); border:1px solid rgba(52,211,153,.3); color:var(--ok); font-size:13px; border-radius:10px; padding:10px 14px; margin-bottom:14px; }
+  .pay-logos { text-align:center; color:var(--mut); font-size:12.5px; margin-top:14px; line-height:1.6; }
+  .err { display:none; background:rgba(248,113,113,.1); border:1px solid rgba(248,113,113,.4); color:#f87171; font-size:13px; border-radius:10px; padding:10px 14px; margin-top:12px; }
+  footer { text-align:center; margin-top:34px; color:var(--mut); font-size:12.5px; line-height:1.8; }
+  footer a { color:var(--blue); text-decoration:none; }
+  .steps { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-top:26px; }
+  .steps h3 { font-size:14px; margin-bottom:10px; }
+  .steps ol { padding-left:18px; color:var(--mut); font-size:13px; line-height:2; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="icon.png" alt="DoulGet">
+    <h1>Doul<span>Get</span></h1>
+    <p>Téléchargez vidéos et musiques de tous vos sites préférés</p>
+  </header>
+
+  <div class="midnote" id="midNote">🔒 Licence liée à votre ordinateur — l'application s'activera automatiquement après le paiement.</div>
+
+  <div class="plans" id="plans">
+    <div class="plan" data-plan="m1" onclick="selectPlan(this)">
+      <div class="l"><b>1 mois</b><small>Pour essayer</small></div>
+      <div class="p"><b>2 000 FCFA</b></div>
+    </div>
+    <div class="plan sel" data-plan="m3" onclick="selectPlan(this)">
+      <span class="badge">POPULAIRE</span>
+      <div class="l"><b>3 mois</b><small>Le meilleur rapport</small></div>
+      <div class="p"><b>4 000 FCFA</b><small>soit 1 333 F/mois</small></div>
+    </div>
+    <div class="plan" data-plan="m12" onclick="selectPlan(this)">
+      <div class="l"><b>12 mois</b><small>Tranquille toute l'année</small></div>
+      <div class="p"><b>12 000 FCFA</b><small>soit 1 000 F/mois</small></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Votre nom (optionnel)</label>
+    <input id="name" type="text" placeholder="Ex: Abdoul Oumarou" maxlength="80">
+  </div>
+  <div class="field">
+    <label>Numéro mobile money (optionnel)</label>
+    <input id="phone" type="tel" placeholder="Ex: 96000000" maxlength="20">
+  </div>
+
+  <button id="payBtn" onclick="pay()">Payer par mobile money</button>
+  <div class="err" id="err"></div>
+
+  <p class="pay-logos">Paiement sécurisé via MoneyFusion<br>Orange Money · MTN MoMo · Moov Money · Wave</p>
+
+  <div class="steps">
+    <h3>Comment ça marche ?</h3>
+    <ol>
+      <li>Choisissez votre durée et payez par mobile money</li>
+      <li>Votre clé de licence s'affiche immédiatement</li>
+      <li>Activez DoulGet et téléchargez sans limite !</li>
+    </ol>
+  </div>
+
+  <footer>
+    Pas encore installé ? <a href="https://github.com/Abdoul123-info/doulbrowser/releases/latest">Télécharger DoulGet pour Windows</a>
+  </footer>
+</div>
+
+<script>
+  var API = 'https://gqrwykhhqjimsgiqkgut.supabase.co/functions/v1/buy-license';
+  var selectedPlan = 'm3';
+  var machineId = new URLSearchParams(location.search).get('mid') || '';
+  if (machineId) document.getElementById('midNote').style.display = 'block';
+
+  function selectPlan(el) {
+    document.querySelectorAll('.plan').forEach(function(p){ p.classList.remove('sel'); });
+    el.classList.add('sel');
+    selectedPlan = el.getAttribute('data-plan');
+  }
+
+  async function pay() {
+    var btn = document.getElementById('payBtn');
+    var err = document.getElementById('err');
+    err.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = 'Création du paiement...';
+    try {
+      var res = await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'create-order',
+          plan: selectedPlan,
+          machineId: machineId,
+          name: document.getElementById('name').value,
+          phone: document.getElementById('phone').value
+        })
+      });
+      var j = await res.json();
+      if (j.success && j.paymentUrl) {
+        try { localStorage.setItem('doulget_last_order', j.orderId); } catch(e) {}
+        location.href = j.paymentUrl;
+      } else {
+        throw new Error(j.error || 'Erreur inconnue');
+      }
+    } catch (e) {
+      err.textContent = '❌ ' + e.message + ' — réessayez ou contactez-nous.';
+      err.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Payer par mobile money';
+    }
+  }
+</script>
+</body>
+</html>
