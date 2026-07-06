@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DoulGet — Politique de confidentialité / Privacy Policy</title>
+<link rel="icon" href="icon.png">
+<style>
+  :root { --bg:#070d1a; --card:#0d1628; --line:#1d2f52; --blue:#3b82f6; --txt:#e8eefc; --mut:#8ea3c8; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--txt); font-family:'Segoe UI',system-ui,sans-serif; min-height:100vh; }
+  .wrap { max-width:760px; margin:0 auto; padding:32px 18px 60px; }
+  header { text-align:center; margin-bottom:28px; }
+  header img { width:56px; height:56px; border-radius:14px; }
+  h1 { font-size:22px; margin-top:10px; }
+  h2 { font-size:17px; color:var(--blue); margin:28px 0 10px; }
+  h3 { font-size:14.5px; margin:18px 0 8px; }
+  p, li { color:var(--mut); font-size:14px; line-height:1.8; }
+  ul { padding-left:20px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 24px; margin-bottom:18px; }
+  .date { text-align:center; color:var(--mut); font-size:12.5px; margin-bottom:24px; }
+  strong { color:var(--txt); }
+  a { color:var(--blue); text-decoration:none; }
+  .lang-sep { border:0; border-top:1px dashed var(--line); margin:36px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="icon.png" alt="DoulGet">
+    <h1>Politique de confidentialité — Extension DoulGet</h1>
+  </header>
+  <p class="date">Dernière mise à jour : 6 juillet 2026 · <a href="#english">English version below</a></p>
+
+  <div class="card">
+    <h2>En résumé</h2>
+    <p><strong>L'extension DoulGet ne collecte, ne stocke et ne vend aucune donnée personnelle.</strong>
+    Elle a un seul rôle : détecter les fichiers et vidéos téléchargeables sur les pages que vous visitez
+    et les transmettre à l'application DoulGet installée <strong>sur votre propre ordinateur</strong>.</p>
+  </div>
+
+  <div class="card">
+    <h2>Quelles données sont traitées, et où vont-elles ?</h2>
+    <p>Lorsqu'un téléchargement est détecté ou que vous cliquez sur « Télécharger avec DoulGet », l'extension transmet à
+    l'application DoulGet — qui s'exécute localement sur votre machine (<strong>http://localhost:8765</strong>) — les éléments
+    nécessaires au téléchargement :</p>
+    <ul>
+      <li>l'adresse (URL) du fichier ou de la vidéo et celle de la page ;</li>
+      <li>le titre de la page (pour nommer le fichier) ;</li>
+      <li>les en-têtes HTTP nécessaires (référent, user-agent) ;</li>
+      <li>pour certaines plateformes qui exigent d'être connecté (ex. Instagram), les cookies de session
+          <strong>du site concerné uniquement</strong>, afin que le téléchargement fonctionne.</li>
+    </ul>
+    <p><strong>Ces données ne quittent jamais votre ordinateur.</strong> Elles ne sont envoyées à aucun serveur distant,
+    ni à nous, ni à des tiers. Elles ne sont pas conservées par l'extension (mémoire temporaire uniquement).</p>
+  </div>
+
+  <div class="card">
+    <h2>Ce que l'extension ne fait pas</h2>
+    <ul>
+      <li>Aucune collecte de données personnelles, d'historique de navigation ou de statistiques d'usage.</li>
+      <li>Aucun traceur, aucune publicité, aucune revente de données.</li>
+      <li>Aucune lecture de vos mots de passe, emails ou documents — les messageries et suites bureautiques
+          (Gmail, Google Docs, etc.) sont explicitement exclues de la détection.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Pourquoi ces autorisations ?</h2>
+    <ul>
+      <li><strong>Accès à tous les sites</strong> : les téléchargements peuvent provenir de n'importe quel site ;
+          l'extension doit pouvoir détecter les médias là où vous naviguez (comme tout gestionnaire de téléchargement).</li>
+      <li><strong>webRequest</strong> : observer les réponses réseau pour repérer les fichiers et flux vidéo téléchargeables.</li>
+      <li><strong>cookies</strong> : joindre la session du site au téléchargement quand la plateforme l'exige — transmis
+          uniquement à l'application locale.</li>
+      <li><strong>tabs / activeTab / scripting</strong> : associer une détection à son onglet et analyser la page
+          à votre demande.</li>
+      <li><strong>storage / alarms</strong> : mémoriser vos préférences et vérifier périodiquement la connexion à l'application.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Contact</h2>
+    <p>Pour toute question : <a href="mailto:oumarouabdoul485@gmail.com">oumarouabdoul485@gmail.com</a></p>
+  </div>
+
+  <hr class="lang-sep" id="english">
+
+  <header>
+    <h1>Privacy Policy — DoulGet Extension</h1>
+  </header>
+  <p class="date">Last updated: July 6, 2026</p>
+
+  <div class="card">
+    <h2>Summary</h2>
+    <p><strong>The DoulGet extension does not collect, store, or sell any personal data.</strong>
+    Its single purpose is to detect downloadable files and videos on the pages you visit and send them to the
+    DoulGet application installed <strong>on your own computer</strong>.</p>
+  </div>
+
+  <div class="card">
+    <h2>What data is processed, and where does it go?</h2>
+    <p>When a download is detected or you click “Download with DoulGet”, the extension sends to the DoulGet
+    application — running locally on your machine (<strong>http://localhost:8765</strong>) — only what is needed
+    to perform the download:</p>
+    <ul>
+      <li>the URL of the file or video and of the page;</li>
+      <li>the page title (used to name the file);</li>
+      <li>required HTTP headers (referrer, user-agent);</li>
+      <li>for platforms that require a signed-in session (e.g. Instagram), the session cookies
+          <strong>of that site only</strong>, so the download can succeed.</li>
+    </ul>
+    <p><strong>This data never leaves your computer.</strong> It is not sent to any remote server, neither ours nor
+    third parties, and is not persisted by the extension (transient memory only).</p>
+  </div>
+
+  <div class="card">
+    <h2>What the extension does not do</h2>
+    <ul>
+      <li>No collection of personal data, browsing history, or usage analytics.</li>
+      <li>No trackers, no ads, no sale of data.</li>
+      <li>No access to your passwords, emails, or documents — webmail and office suites
+          (Gmail, Google Docs, etc.) are explicitly excluded from detection.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Contact</h2>
+    <p>Questions: <a href="mailto:oumarouabdoul485@gmail.com">oumarouabdoul485@gmail.com</a></p>
+  </div>
+
+  <p style="text-align:center; margin-top:26px"><a href="index.html">← Boutique DoulGet</a></p>
+</div>
+</body>
+</html>
