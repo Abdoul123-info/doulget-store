@@ -46,6 +46,8 @@
   .err { display:none; background:rgba(248,113,113,.1); border:1px solid rgba(248,113,113,.4); color:#f87171; font-size:13px; border-radius:10px; padding:10px 14px; margin-top:12px; }
   footer { text-align:center; margin-top:34px; color:var(--mut); font-size:12.5px; line-height:1.8; }
   footer a { color:var(--blue); text-decoration:none; }
+  .outside { text-align:center; color:var(--mut); font-size:12.5px; margin-top:14px; }
+  .outside a { color:var(--ok); font-weight:600; text-decoration:none; }
   .steps { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-top:26px; }
   .steps h3 { font-size:14px; margin-bottom:10px; }
   .steps ol { padding-left:18px; color:var(--mut); font-size:13px; line-height:2; }
@@ -59,7 +61,7 @@
     <p>Téléchargez vidéos et musiques de tous vos sites préférés</p>
   </header>
 
-  <div class="midnote" id="midNote">🔒 Licence liée à votre ordinateur — l'application s'activera automatiquement après le paiement.</div>
+  <div class="midnote" id="midNote">🔒 Licence liée à votre appareil — l'application s'activera automatiquement après le paiement.</div>
 
   <div class="plans" id="plans">
     <div class="plan" data-plan="m1" onclick="selectPlan(this)">
@@ -91,14 +93,20 @@
 
   <p class="pay-title">Moyens de paiement acceptés</p>
   <div class="chips">
-    <div class="pm"><span class="chip"><img src="img/orange.svg" alt="Orange Money"></span><small>Orange Money</small></div>
-    <div class="pm"><span class="chip"><img src="img/mtn.svg" alt="MTN MoMo"></span><small>MTN MoMo</small></div>
+    <div class="pm"><span class="chip"><img src="img/airtel.png" alt="Airtel Money"></span><small>Airtel Money</small></div>
     <div class="pm"><span class="chip"><img src="img/moov.png" alt="Moov Money"></span><small>Moov Money</small></div>
-    <div class="pm"><span class="chip"><img src="img/wave.png" alt="Wave"></span><small>Wave</small></div>
-    <div class="pm"><span class="chip"><img src="img/mynita.png" alt="MyNita"></span><small>MyNita</small></div>
+    <div class="pm"><span class="chip"><img src="img/zamani.png" alt="Zamani Cash"></span><small>Zamani Cash</small></div>
     <div class="pm"><span class="chip"><img src="img/amana.png" alt="Amana"></span><small>Amana</small></div>
+    <div class="pm"><span class="chip"><img src="img/mynita.png" alt="MyNita"></span><small>MyNita</small></div>
   </div>
   <div class="mfline">Paiement sécurisé par <span class="mfchip"><img src="img/moneyfusion.svg" alt="MoneyFusion"></span></div>
+
+  <!-- Le paiement mobile money n'accepte que les numéros du Niger (+227). Sans cette
+       porte de sortie, un client du Burkina, du Bénin ou du Mali repartait sans rien. -->
+  <div class="outside">
+    Vous n'êtes pas au Niger ?
+    <a href="https://wa.me/22785196143?text=Bonjour%2C%20je%20veux%20acheter%20une%20licence%20DoulGet." target="_blank" rel="noopener">Achetez votre clé par WhatsApp</a>
+  </div>
 
   <div class="steps">
     <h3>Comment ça marche ?</h3>
